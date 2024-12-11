@@ -29,6 +29,7 @@ runs:
       shell: pwsh
       run: |
         Set-GitHubEnv 'DOTNET_INSTALL_DIR' 'D:\dotnet'
+        Set-GitHubEnv 'NUGET_PACKAGES' 'D:\nuget'
 
     # For wildcard .NET versions, the General Availability ("ga") channel should be selected. For concrete versions,
     # this shouldn't be set, because that'll cause a warning.
