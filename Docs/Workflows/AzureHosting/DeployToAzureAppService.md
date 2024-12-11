@@ -8,6 +8,10 @@ name: Deploy to Azure App Service
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   deploy-to-azure-app-service:
     name: Deploy to Azure App Service

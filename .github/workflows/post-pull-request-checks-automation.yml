@@ -43,7 +43,8 @@ on:
         default: merge
       timeout-minutes:
         type: number
-        default: 1
+        # Sometimes the job is slow to start, so we have to factor in that.
+        default: 3
         description: Configuration for the timeout-minutes parameter of the workflow.
       run-only-latest-workflow:
         type: string
