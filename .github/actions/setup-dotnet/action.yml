@@ -24,7 +24,7 @@ runs:
     # This makes builds faster under Windows, see
     # https://github.com/actions/setup-dotnet/issues/260#issuecomment-2516145018. Only GitHub-hosted standard (not
     # larger) runners have such a D drive.
-    - name: Set DOTNET_INSTALL_DIR NUGET_PACKAGES to D Drive on Windows
+    - name: Set DOTNET_INSTALL_DIR and NUGET_PACKAGES to D Drive on Windows
       if: runner.os == 'Windows' && !contains(runner.name, 'core_') && !contains(runner.name, 'warp')
       shell: pwsh
       run: |
