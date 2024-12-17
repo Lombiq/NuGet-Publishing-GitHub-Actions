@@ -21,6 +21,16 @@ runs:
         Set-GitHubEnv 'DOTNET_SKIP_FIRST_TIME_EXPERIENCE' 'true'
         Set-GitHubEnv 'DOTNET_CLI_TELEMETRY_OPTOUT' 'true'
 
+    # This makes builds faster under Windows, see
+    # https://github.com/actions/setup-dotnet/issues/260#issuecomment-2516145018. Only GitHub-hosted standard (not
+    # larger) runners have such a D drive.
+    - name: Set DOTNET_INSTALL_DIR and NUGET_PACKAGES to D Drive on Windows
+      if: runner.os == 'Windows' && runner.environment == 'github-hosted' && !contains(runner.name, 'core_')
+      shell: pwsh
+      run: |
+        Set-GitHubEnv 'DOTNET_INSTALL_DIR' 'D:\dotnet'
+        Set-GitHubEnv 'NUGET_PACKAGES' 'D:\nuget'
+
     # For wildcard .NET versions, the General Availability ("ga") channel should be selected. For concrete versions,
     # this shouldn't be set, because that'll cause a warning.
     - name: Set dotnet-quality
