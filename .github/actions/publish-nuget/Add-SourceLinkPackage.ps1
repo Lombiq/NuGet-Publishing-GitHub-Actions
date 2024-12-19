@@ -17,6 +17,8 @@ else
 
 foreach ($projectFile in $projectFiles)
 {
+    Write-Output "Adding SourceLink package to $($projectFile.FullName)."
+
     # Below we first prepare the project file by adding the NuGetBuild=true property to the top of it. This is needed
     # for dotnet add package which could otherwise fail due to conditions in the project file.
     # We don't use a Directory.Build.props file for this because the project might have one already, and then we'd need
@@ -51,6 +53,8 @@ foreach ($projectFile in $projectFiles)
     $projectXml = [xml](Get-Content $projectFile)
     $projectXml.Project.RemoveChild($projectXml.Project.FirstChild)
     $projectXml.Save($projectFile)
+
+    Write-Output "SourceLink package added to $($projectFile.FullName)."
 }
 
 Write-Output 'SourceLink package added to all projects.'
