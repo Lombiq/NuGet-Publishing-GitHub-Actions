@@ -106,7 +106,7 @@ jobs:
           verbosity: ${{ inputs.verbosity }}
           dotnet-pack-ignore-warning: ${{ inputs.dotnet-pack-ignore-warning }}
           dotnet-pack-include-symbols: ${{ inputs.dotnet-pack-include-symbols }}
-          publish-version: 10.0.0
+          publish-version: ${{ inputs.publish-version }}
           nuget-artifact-retention-days: ${{ inputs.nuget-artifact-retention-days }}
           add-source-link-package: ${{ inputs.add-source-link-package }}
           dry-run: ${{ inputs.dry-run }}
