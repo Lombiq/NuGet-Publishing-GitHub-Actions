@@ -43,15 +43,19 @@ foreach ($projectFile in $projectFiles)
     # Save the changes back to the .csproj file.
     $projectXml.Save($projectFile)
 
-    # Display the content of the project file.
-    Write-Output "Content of $($projectFile.FullName):"
-    Get-Content $projectFile.FullName | ForEach-Object { Write-Output $_ }
-
     # We can't use --no-restore because not only would it skip checks, it'd also be incompatible with projects using
     # Central Package Management (https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management).
     # Unfortunately, this makes NuGet publishing a lot slower than using dotnet restore, and it's also more verbose
     # (without the ability to configure that verbosity).
-    dotnet add $projectFile.FullName package 'Microsoft.SourceLink.GitHub'
+    # Due to output buffering, the order of output messages might be mixed up without saving the output to a variable.
+    $dotnetOutput = dotnet add $projectFile.FullName package 'Microsoft.SourceLink.GitHub'
+    Write-Output $dotnetOutput
+
+    if ($LASTEXITCODE -ne 0)
+    {
+        Write-Output "::error file=$($projectFile.FullName)::dotnet add package $($projectFile.FullName) 'Microsoft.SourceLink.GitHub' failed."
+        exit 1
+    }
 
     # The NuGetBuild property mustn't remain in the project file.
     $projectXml = [xml](Get-Content $projectFile)
