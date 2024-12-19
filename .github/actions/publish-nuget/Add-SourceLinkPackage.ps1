@@ -43,10 +43,6 @@ foreach ($projectFile in $projectFiles)
     # Save the changes back to the .csproj file.
     $projectXml.Save($projectFile)
 
-    # Display the content of the project file.
-    Write-Output "Content of $($projectFile.FullName):"
-    Get-Content $projectFile.FullName | ForEach-Object { Write-Output $_ }
-
     # We can't use --no-restore because not only would it skip checks, it'd also be incompatible with projects using
     # Central Package Management (https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management).
     # Unfortunately, this makes NuGet publishing a lot slower than using dotnet restore, and it's also more verbose
