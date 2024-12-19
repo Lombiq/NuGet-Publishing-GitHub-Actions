@@ -130,7 +130,6 @@ runs:
       run: |
         if ('${{ inputs.add-source-link-package }}' -eq 'true')
         {
-            dotnet restore -p:NuGetBuild=true
             Add-SourceLinkPackage
         }
         else
