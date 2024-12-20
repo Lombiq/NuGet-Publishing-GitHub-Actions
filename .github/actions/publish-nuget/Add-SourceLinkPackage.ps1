@@ -15,9 +15,13 @@ else
     $projectFiles = $projectPaths | ForEach-Object { Get-Item -Path $PSItem }
 }
 
+# We need multiple iterations below, because before we can add the SourceLink package to any of the projects, we need to
+# make sure that its dependencies have NuGetBuild set too.
+
+# Add the NuGetBuild property to all project files while keeping track of the original content.
 foreach ($projectFile in $projectFiles)
 {
-    Write-Output "Adding SourceLink package to $($projectFile.FullName)."
+    Write-Output "Adding the NuGetBuild property to $($projectFile.FullName)."
 
     # Below we first prepare the project file by adding the NuGetBuild=true property to the top of it. This is needed
     # for dotnet add package which could otherwise fail due to conditions in the project file.
@@ -42,6 +46,12 @@ foreach ($projectFile in $projectFiles)
 
     # Save the changes back to the .csproj file.
     $projectXml.Save($projectFile)
+}
+
+# Run dotnet add package for each project.
+foreach ($projectFile in $projectFiles)
+{
+    Write-Output "Adding SourceLink package to $($projectFile.FullName)."
 
     # We can't use --no-restore because not only would it skip checks, it'd also be incompatible with projects using
     # Central Package Management (https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management).
@@ -56,13 +66,17 @@ foreach ($projectFile in $projectFiles)
         Write-Output "::error file=$($projectFile.FullName)::dotnet add package $($projectFile.FullName) 'Microsoft.SourceLink.GitHub' failed."
         exit 1
     }
+}
 
-    # The NuGetBuild property mustn't remain in the project file.
+# Remove the NuGetBuild property from all project files.
+foreach ($projectFile in $projectFiles)
+{
+    Write-Output "Removing the NuGetBuild property from $($projectFile.FullName)."
+
+    # The NuGetBuild property mustn't remain in the project file for NuGet publishing.
     $projectXml = [xml](Get-Content $projectFile)
     $projectXml.Project.RemoveChild($projectXml.Project.FirstChild)
     $projectXml.Save($projectFile)
-
-    Write-Output "SourceLink package added to $($projectFile.FullName)."
 }
 
 Write-Output 'SourceLink package added to all projects.'
