@@ -236,29 +236,29 @@ runs:
             Write-Output "::notice::Dry run mode: Package created successfully but will not be published."
         }
 
-    # - name: Push with dotnet
-    #   if: inputs.dry-run != 'true'
-    #   shell: pwsh
-    #   run: |
-    #     if ([string]::IsNullOrWhiteSpace($Env:API_KEY))
-    #     {
-    #         Write-Output "::error::API_KEY is missing or empty."
-    #         exit 1
-    #     }
-    #     dotnet nuget push artifacts/*.nupkg --api-key $Env:API_KEY --source '${{ steps.setup.outputs.source-url }}' --skip-duplicate
+    - name: Push with dotnet
+      if: inputs.dry-run != 'true'
+      shell: pwsh
+      run: |
+        if ([string]::IsNullOrWhiteSpace($Env:API_KEY))
+        {
+            Write-Output "::error::API_KEY is missing or empty."
+            exit 1
+        }
+        dotnet nuget push artifacts/*.nupkg --api-key $Env:API_KEY --source '${{ steps.setup.outputs.source-url }}' --skip-duplicate
 
-    # - name: Publish Artifacts
-    #   uses: Lombiq/GitHub-Actions/.github/actions/upload-artifact@dev
-    #   with:
-    #     name: NuGet-Package
-    #     path: artifacts
-    #     retention-days: ${{ inputs.nuget-artifact-retention-days }}
+    - name: Publish Artifacts
+      uses: Lombiq/GitHub-Actions/.github/actions/upload-artifact@dev
+      with:
+        name: NuGet-Package
+        path: artifacts
+        retention-days: ${{ inputs.nuget-artifact-retention-days }}
 
-    # - name: Create Release
-    #   uses: Lombiq/GitHub-Actions/.github/actions/release-action@dev
-    #   # Also preventing creating releases when pushing tags for issue-specific pre-releases like v4.3.1-alpha.osoe-86.
-    #   if: inputs.dry-run != 'true' && !contains(steps.setup.outputs.publish-version, '-')
-    #   with:
-    #     allowUpdates: true
-    #     generateReleaseNotes: true
-    #     artifacts: artifacts/*.nupkg, artifacts/*.snupkg
+    - name: Create Release
+      uses: Lombiq/GitHub-Actions/.github/actions/release-action@dev
+      # Also preventing creating releases when pushing tags for issue-specific pre-releases like v4.3.1-alpha.osoe-86.
+      if: inputs.dry-run != 'true' && !contains(steps.setup.outputs.publish-version, '-')
+      with:
+        allowUpdates: true
+        generateReleaseNotes: true
+        artifacts: artifacts/*.nupkg, artifacts/*.snupkg
