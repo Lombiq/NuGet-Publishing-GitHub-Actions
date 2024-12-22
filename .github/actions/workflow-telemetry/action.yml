@@ -64,8 +64,7 @@ runs:
         checkout-token: ${{ inputs.github_token }}
 
     - name: Collect Workflow Telemetry
-      # v2.0.0
-      uses: catchpoint/workflow-telemetry-action@94c3c3d9567a0205de6da68a76c428ce4e769af1
+      uses: catchpoint/workflow-telemetry-action@94c3c3d9567a0205de6da68a76c428ce4e769af1 # renovate: tag=v2.0.0
       with:
         github_token: ${{ env.CHECKOUT_TOKEN }}
         metric_frequency: ${{ inputs.metric_frequency }}
