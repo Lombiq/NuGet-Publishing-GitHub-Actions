@@ -3,7 +3,7 @@
     'extends': ['github>Lombiq/renovate-config:default.json5'],
     'packageRules': [
         {
-            'groupName': 'All updates',
+            'groupName': 'All updates again',
             'matchUpdateTypes': ['*']
         },
         {
