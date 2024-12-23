@@ -11,7 +11,7 @@ on:
 jobs:
   swap-azure-web-app-slots:
     name: Swap Azure Web App Slots
-    uses: Lombiq/GitHub-Actions/.github/workflows/swap-azure-web-app-slots.yml@renovate/all-updates
+    uses: Lombiq/GitHub-Actions/.github/workflows/swap-azure-web-app-slots.yml@dev
     with:
       timeout-minutes: 10
       app-name: AppName

@@ -28,7 +28,7 @@ We at [Lombiq](https://lombiq.com/) also used these workflows for the following 
 <!-- textlint-disable doubled-spaces -->
 
 > [!NOTE]
-> The code samples in the documentation reference the latest versions of the workflows and actions from the `dev` branch with `@renovate/all-updates`. This allows you to always use the latest versions, and get updates immediately. If instead you prefer stability, reference a specific version instead, like `@1.2.0`. You can see the versions available under [Releases](https://github.com/Lombiq/GitHub-Actions/releases).
+> The code samples in the documentation reference the latest versions of the workflows and actions from the `dev` branch with `@dev`. This allows you to always use the latest versions, and get updates immediately. If instead you prefer stability, reference a specific version instead, like `@1.2.0`. You can see the versions available under [Releases](https://github.com/Lombiq/GitHub-Actions/releases).
 
 <!-- textlint-enable doubled-spaces -->
 
@@ -49,7 +49,7 @@ We can still choose to update to a more recent patch version, but only deliberat
 
 ### Reference validation
 
-To ensure that when changing actions or workflows their references to other actions/workflows are up-to-date (i.e. instead of `@renovate/all-updates` they reference each other with `@current-branch`) the [Validate GitHub Actions Refs workflow](https://github.com/Lombiq/GitHub-Actions/blob/dev/.github/workflows/validate-this-gha-refs.yml) will fail if references are incorrect. This is the case also if after a pull request approve that references don't point to the target branch; before merging, that should be fixed, otherwise merging via the merge queue will fail.
+To ensure that when changing actions or workflows their references to other actions/workflows are up-to-date (i.e. instead of `@dev` they reference each other with `@current-branch`) the [Validate GitHub Actions Refs workflow](https://github.com/Lombiq/GitHub-Actions/blob/dev/.github/workflows/validate-this-gha-refs.yml) will fail if references are incorrect. This is the case also if after a pull request approve that references don't point to the target branch; before merging, that should be fixed, otherwise merging via the merge queue will fail.
 
 ### Versioning, Tags and Releases
 
