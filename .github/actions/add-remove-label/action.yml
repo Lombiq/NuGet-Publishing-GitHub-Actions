@@ -26,8 +26,7 @@ runs:
   using: composite
   steps:
     - name: Add/Remove Label
-      # v2.0.1
-      uses: buildsville/add-remove-label@ac59c9f0aeb66eb12d6366eb1d69ec1906e9ef9a
+      uses: buildsville/add-remove-label@ac59c9f0aeb66eb12d6366eb1d69ec1906e9ef9a # renovate: tag=v2.0.1
       with:
         token: ${{ inputs.token }}
         labels: ${{ inputs.labels }}

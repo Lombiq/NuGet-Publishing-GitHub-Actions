@@ -1,0 +1,10 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["github>Lombiq/renovate-config:default.json5"],
+    "packageRules": [
+        {
+            "groupName": "All updates",
+            "matchUpdateTypes": ["*"]
+        }
+    ]
+}
