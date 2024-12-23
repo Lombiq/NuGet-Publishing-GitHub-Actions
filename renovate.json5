@@ -1,15 +1,24 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>Lombiq/renovate-config:default.json5"],
-    "packageRules": [
+    $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+    extends: [
+        'github>Lombiq/renovate-config:default.json5',
+    ],
+    packageRules: [
         {
-            "groupName": "All updates",
-            "matchUpdateTypes": ["*"]
+            groupName: 'All updates',
+            matchUpdateTypes: [
+                '*',
+            ],
         },
         {
-            "packageNames": ["azure/webapps-deploy"],
-            "matchCurrentVersion": "^2.0.0",
-            "matchUpdateTypes": ["minor", "patch"]
-        }
-    ]
+            matchPackageNames: [
+                'azure/webapps-deploy',
+            ],
+            matchCurrentVersion: '^2.0.0',
+            matchUpdateTypes: [
+                'minor',
+                'patch',
+            ],
+        },
+    ],
 }
