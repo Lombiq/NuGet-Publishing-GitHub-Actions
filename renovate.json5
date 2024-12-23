@@ -7,9 +7,10 @@
             'matchUpdateTypes': ['*']
         },
         {
-            'matchPackageNames': ['azure/webapps-deploy'], // #spell-check-ignore-line
-            'matchCurrentVersion': '/^2\./',
-            'matchUpdateTypes': ['minor', 'patch']
+            matchPackageNames: ['azure/webapps-deploy'], // #spell-check-ignore-line
+            matchCurrentVersion: '/^2\./',
+            matchUpdateTypes: ['major'],
+            enabled: false,
         }
     ]
 }
