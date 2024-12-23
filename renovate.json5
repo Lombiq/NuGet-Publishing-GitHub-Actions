@@ -8,7 +8,7 @@
         },
         {
             "packageNames": ["azure/webapps-deploy"],
-            "matchCurrentVersion": "^2.0.0",
+            "matchCurrentVersion": "^2.",
             "matchUpdateTypes": ["minor", "patch"]
         }
     ]
