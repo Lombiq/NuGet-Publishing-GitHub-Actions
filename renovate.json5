@@ -8,8 +8,7 @@
         },
         {
             matchPackageNames: ['azure/webapps-deploy'], // #spell-check-ignore-line
-            matchCurrentVersion: '/^2\\./',
-            matchUpdateTypes: ['major'],
+            matchFileNames: ['.github/workflows/deploy-orchard1-to-azure-app-service.yml'], 
             enabled: false,
         }
     ]
