@@ -7,7 +7,7 @@
             "matchUpdateTypes": ["*"]
         },
         {
-            "packageNames": ["azure/webapps-deploy"],
+            "packageNames": ["azure/webapps-deploy"], // #spell-check-ignore-line
             "matchCurrentVersion": "^2.",
             "matchUpdateTypes": ["minor", "patch"]
         }
