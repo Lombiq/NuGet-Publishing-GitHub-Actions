@@ -14,7 +14,7 @@ on:
 jobs:
   post-to-x:
     name: Post to X (Twitter)
-    uses: Lombiq/GitHub-Actions/.github/workflows/post-to-x.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/post-to-x.yml@renovate/all-updates
     secrets:
       X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
       X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}

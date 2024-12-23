@@ -17,7 +17,7 @@ on:
 jobs:
   validate-pull-request:
     name: Validate Pull Request
-    uses: Lombiq/GitHub-Actions/.github/workflows/validate-submodule-pull-request.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/validate-submodule-pull-request.yml@renovate/all-updates
     with:
       repository: Lombiq/Hastlayer-SDK
 ```
