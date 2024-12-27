@@ -17,7 +17,7 @@ on:
 jobs:
   build-and-test:
     name: Build and Test
-    uses: Lombiq/GitHub-Actions/.github/workflows/build-and-test-orchard-core.yml@renovate/actions-setup-dotnet-4.x
+    uses: Lombiq/GitHub-Actions/.github/workflows/build-and-test-orchard-core.yml@dev
     with:
       timeout-minutes: 60
 ```

@@ -10,7 +10,7 @@ You would typically consume the corresponding GHA workflow for YAML linting like
 jobs:
     yaml-linting:
         name: YAML Linting
-        uses: Lombiq/GitHub-Actions/.github/workflows/yaml-lint.yml@renovate/actions-setup-dotnet-4.x
+        uses: Lombiq/GitHub-Actions/.github/workflows/yaml-lint.yml@dev
         with:
             config-file-path: 'tools/Lombiq.GitHub.Actions/.trunk/configs/.yamllint.yaml'
             search-path: '.'

@@ -15,7 +15,7 @@ permissions:
 jobs:
   deploy-to-azure-app-service:
     name: Deploy to Azure App Service
-    uses: Lombiq/GitHub-Actions/.github/workflows/deploy-to-azure-app-service.yml@renovate/actions-setup-dotnet-4.x
+    uses: Lombiq/GitHub-Actions/.github/workflows/deploy-to-azure-app-service.yml@dev
     with:
       timeout-minutes: 60
       app-name: AppName
