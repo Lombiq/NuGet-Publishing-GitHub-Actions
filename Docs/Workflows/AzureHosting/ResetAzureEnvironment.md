@@ -11,7 +11,7 @@ on:
 jobs:
   reset-azure-environment:
     name: Reset Azure Environment
-    uses: Lombiq/GitHub-Actions/.github/workflows/reset-azure-environment.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/reset-azure-environment.yml@renovate/actions-setup-dotnet-4.x
     with:
       timeout-minutes: 60
       app-name: AppName
