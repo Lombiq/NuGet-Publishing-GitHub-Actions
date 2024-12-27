@@ -234,7 +234,7 @@ jobs:
             -SlotName ${{ inputs.slot-name }}
 
       - name: Deploy to Azure App Service
-        uses: azure/webapps-deploy@2fdd5c3ebb4e540834e86ecc1f6fdcd5539023ee # v3.0.2
+        uses: azure/webapps-deploy@2fdd5c3ebb4e540834e86ecc1f6fdcd5539023ee # renovate: tag=v3.0.2
         with:
           app-name: ${{ inputs.app-name }}
           slot-name: ${{ inputs.slot-name }}

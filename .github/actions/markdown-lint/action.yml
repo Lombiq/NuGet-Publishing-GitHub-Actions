@@ -29,7 +29,7 @@ runs:
     - name: Markdown Linting
       # When upgrading, also update Lombiq.NodeJs.Extensions to use the corresponding version of the markdownlint
       # package.
-      uses: DavidAnson/markdownlint-cli2-action@eb5ca3ab411449c66620fe7f1b3c9e10547144b0 # v18.0.0
+      uses: DavidAnson/markdownlint-cli2-action@eb5ca3ab411449c66620fe7f1b3c9e10547144b0 # renovate: tag=v18.0.0
       with:
         config: ${{ inputs.config }}
         fix: ${{ inputs.fix }}

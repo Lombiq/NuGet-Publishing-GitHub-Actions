@@ -47,7 +47,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
+    - uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # renovate: tag=v4.5.0
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
