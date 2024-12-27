@@ -174,7 +174,7 @@ jobs:
         run: Start-Sleep -Seconds 30
 
       - name: Deploy to Azure App Service
-        uses: azure/webapps-deploy@4bfb30bef2c330e36be280cb1e5726d0fac06233 # renovate: tag=v2.2.13
+        uses: azure/webapps-deploy@4bfb30bef2c330e36be280cb1e5726d0fac06233 # v2.2.13
         with:
           app-name: ${{ inputs.app-name }}
           slot-name: ${{ inputs.slot-name }}
