@@ -31,9 +31,11 @@ jobs:
       CHECKOUT_TOKEN: ${{ secrets.YOUR_CHECKOUT_TOKEN }}
 ```
 
+<!-- textlint-disable doubled-spaces -->
 > [!NOTE]
 > Only _renovate.json5_ configuration files in the root of the repository are supported.
 > The workflow overrides the `schedule` and `prHourlyLimit` options coming from the `renovate.json5` configuration file, instead relying on the schedule of the workflow itself.
+<!-- textlint-enable doubled-spaces -->
 
 If Renovate is not doing what you expect it to do, you can increase the log level to `debug`, and see in the workflow output what happens:
 
