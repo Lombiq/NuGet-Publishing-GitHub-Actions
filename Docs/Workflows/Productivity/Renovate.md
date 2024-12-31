@@ -5,7 +5,7 @@
 This workflow wraps the [Renovate GitHub Action](https://github.com/renovatebot/github-action) to make it easier to use, especially in Lombiq projects, like below.
 
 > [!IMPORTANT]  
-> The `CHECKOUT_TOKEN` should be set up to also enable Renovate to work, see: [the docs](https://github.com/renovatebot/github-action?tab=readme-ov-file#token).
+> The `CHECKOUT_TOKEN` should be set up to also enable Renovate to work, see [the docs](https://github.com/renovatebot/github-action?tab=readme-ov-file#token).
 
 ```yaml
 name: Renovate
