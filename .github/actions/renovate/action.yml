@@ -12,19 +12,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Setup Scripts
-      shell: pwsh
-      run: |
-        (Resolve-Path '${{ github.action_path }}/../../../Scripts').Path >> $Env:GITHUB_PATH
-
-    - name: Set Renovate Dry Run
-      id: set-dry-run
-      if: github.ref_name != github.event.repository.default_branch && github.ref_name != 'renovate/configure'
-      shell: pwsh
-      run: |
-        Set-GitHubOutput 'dry-run' 'full'
-        Write-Output '::notice::Dry run mode: Renovate won''t create pull requests.'
-
     - name: Run Renovate
       uses: renovatebot/github-action@2be773c4be8361d8182cc1b750e75bbc75af71b0 # v41.0.7
       env:
@@ -32,6 +19,5 @@ runs:
         LOG_LEVEL: ${{ inputs.log-level }}
         # Do the dependency updates when the workflow runs, not when the Renovate config tells it.
         RENOVATE_FORCE: '{''schedule'':null,''prHourlyLimit'':0}'
-        RENOVATE_DRY_RUN: ${{ steps.set-dry-run.outputs.dry-run }}
       with:
         token: ${{ env.CHECKOUT_TOKEN }}
