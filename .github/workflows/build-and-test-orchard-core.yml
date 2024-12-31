@@ -246,7 +246,7 @@ jobs:
       # This has to be the first step so it can collect data about the whole workflow run.
       - name: Collect Workflow Telemetry
         if: inputs.collect-workflow-telemetry == 'true'
-        uses: Lombiq/GitHub-Actions/.github/actions/workflow-telemetry@issue/OSOE-815-renovate-gha
+        uses: Lombiq/GitHub-Actions/.github/actions/workflow-telemetry@issue/OSOE-815-combined
         with:
           github_token: ${{ secrets.CHECKOUT_TOKEN }}
 
@@ -267,7 +267,7 @@ jobs:
           Write-Output $message
 
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-renovate-gha
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-combined
         with:
           repository: ${{ inputs.repository }}
           ref: ${{ inputs.repository-ref }}

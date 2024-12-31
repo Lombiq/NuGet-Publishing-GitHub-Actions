@@ -90,7 +90,7 @@ jobs:
           ENVIRONMENT_VARIABLES_JSON: ${{ secrets.ENVIRONMENT_VARIABLES_JSON }}
 
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-renovate-gha
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-combined
         with:
           token: ${{ secrets.CHECKOUT_TOKEN }}
 

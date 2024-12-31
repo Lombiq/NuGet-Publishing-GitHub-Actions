@@ -55,7 +55,7 @@ on:
 jobs:
   validate-nuget-publish:
     name: Validate NuGet Publish
-    uses: Lombiq/GitHub-Actions/.github/workflows/publish-nuget.yml@issue/OSOE-815-renovate-gha
+    uses: Lombiq/GitHub-Actions/.github/workflows/publish-nuget.yml@issue/OSOE-815-combined
     with:
       cancel-workflow-on-failure: ${{ inputs.cancel-workflow-on-failure }}
       verbosity: ${{ inputs.verbosity }}

@@ -11,7 +11,7 @@ on:
 jobs:
   spelling:
     name: Spelling
-    uses: Lombiq/GitHub-Actions/.github/workflows/spelling.yml@issue/OSOE-815-renovate-gha
+    uses: Lombiq/GitHub-Actions/.github/workflows/spelling.yml@issue/OSOE-815-combined
     with:
       additional-dictionaries: |
         cspell:companies/src/companies.txt
