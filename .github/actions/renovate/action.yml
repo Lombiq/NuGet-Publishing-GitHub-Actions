@@ -19,7 +19,7 @@ runs:
 
     - name: Set Renovate Dry Run
       id: set-dry-run
-      if: github.ref_name != github.event.repository.default_branch
+      if: github.ref_name != github.event.repository.default_branch && github.ref_name != 'renovate/configure'
       shell: pwsh
       run: |
         Set-GitHubOutput 'dry-run' 'full'
