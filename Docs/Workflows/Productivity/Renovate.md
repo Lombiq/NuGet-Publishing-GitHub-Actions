@@ -29,3 +29,10 @@ jobs:
 ```
 
 The `CHECKOUT_TOKEN` should be set up to also enable Renovate to work, see: [the docs](https://github.com/renovatebot/github-action?tab=readme-ov-file#token).
+
+If Renovate is not doing what you expect it to do, you can increase the log level to `debug`, and see in the workflow output what happens:
+
+```yaml
+    with:
+      log-level: debug
+```
