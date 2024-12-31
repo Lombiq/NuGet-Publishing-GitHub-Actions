@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Renovate
         uses: Lombiq/GitHub-Actions/.github/actions/renovate@issue/OSOE-815-combined
-          env:
-            CHECKOUT_TOKEN: ${{ secrets.CHECKOUT_TOKEN }}
+        env:
+          CHECKOUT_TOKEN: ${{ secrets.CHECKOUT_TOKEN }}
         with:
           log-level: ${{ inputs.log-level }}
