@@ -14,6 +14,10 @@ on:
           type: string
           default: ubuntu-24.04
           description: The name of the type of machine to run the workflow under.
+        log-level:
+          type: string
+          default: info
+          description: The log level for Renovate (e.g., debug, info, warn, error).
 
 jobs:
   renovate:
@@ -28,6 +32,7 @@ jobs:
         uses: renovatebot/github-action@2be773c4be8361d8182cc1b750e75bbc75af71b0 # v41.0.7
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
+          LOG_LEVEL: ${{ inputs.log-level }}
           # Do the dependency updates when the workflow runs, not when the Renovate config tells it.
           RENOVATE_FORCE: '{''schedule'':null,''prHourlyLimit'':0}'
         with:
