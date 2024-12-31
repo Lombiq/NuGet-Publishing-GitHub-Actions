@@ -15,8 +15,8 @@ inputs:
     required: false
     default: ${{ github.token }}
     description: >
-      The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules are
-      used.
+      The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated 
+      submodules are used.
   path:
     description: Relative path under $GITHUB_WORKSPACE to place the repository
   fetch-depth:

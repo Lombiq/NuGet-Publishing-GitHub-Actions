@@ -13,8 +13,8 @@ on:
       CHECKOUT_TOKEN:
         required: false
         description: >
-          The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules
-          are used.
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated 
+          submodules are used.
 
       # These secrets are for OpenID Connect-based authentication with Azure services through the azure/login action
       # (proxied by our login-to-azure action below). Check out its documentation on how these secrets are used:
