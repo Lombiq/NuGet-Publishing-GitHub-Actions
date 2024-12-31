@@ -33,8 +33,10 @@ jobs:
 
 <!-- textlint-disable doubled-spaces -->
 > [!NOTE]
-> Only _renovate.json5_ configuration files in the root of the repository are supported.
-> The workflow overrides the `schedule` and `prHourlyLimit` options coming from the `renovate.json5` configuration file, instead relying on the schedule of the workflow itself.
+> There are some differences in behavior compared to the default that the workflow provides:
+> - Only _renovate.json5_ configuration files in the root of the repository are supported.
+> - The `schedule` and `prHourlyLimit` options coming from the `renovate.json5` configuration file are overridden, instead relying on the schedule of the workflow itself.
+> - When run from other than the repository's default branch, a [dry run](https://docs.renovatebot.com/self-hosted-configuration/#dryrun) will happen
 <!-- textlint-enable doubled-spaces -->
 
 If Renovate is not doing what you expect it to do, you can increase the log level to `debug`, and see in the workflow output what happens:
