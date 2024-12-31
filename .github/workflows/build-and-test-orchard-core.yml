@@ -267,7 +267,7 @@ jobs:
           Write-Output $message
 
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-renovate-gha
         with:
           repository: ${{ inputs.repository }}
           ref: ${{ inputs.repository-ref }}

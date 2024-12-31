@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{ inputs.machine-type }}
     steps:
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-renovate-gha
         with:
           token: ${{ secrets.CHECKOUT_TOKEN }}
 
