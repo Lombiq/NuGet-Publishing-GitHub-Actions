@@ -3,21 +3,21 @@ name: Renovate
 on:
   workflow_call:
     secrets:
-        CHECKOUT_TOKEN:
-          required: false
-          description: >
-            The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
-            submodules are used. The token should be set up to also enable Renovate to work, see:
-            https://github.com/renovatebot/github-action?tab=readme-ov-file#token.
+      CHECKOUT_TOKEN:
+        required: false
+        description: >
+        The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+        submodules are used. The token should be set up to also enable Renovate to work, see:
+        https://github.com/renovatebot/github-action?tab=readme-ov-file#token.
     inputs:
-        machine-type:
-          type: string
-          default: ubuntu-24.04
-          description: The name of the type of machine to run the workflow under.
-        log-level:
-          type: string
-          default: info
-          description: The log level for Renovate (e.g., debug, info, warn, error).
+      machine-type:
+        type: string
+        default: ubuntu-24.04
+        description: The name of the type of machine to run the workflow under.
+      log-level:
+        type: string
+        default: info
+        description: The log level for Renovate (e.g., debug, info, warn, error).
 
 jobs:
   renovate:

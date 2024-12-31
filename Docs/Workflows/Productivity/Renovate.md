@@ -31,10 +31,10 @@ jobs:
       CHECKOUT_TOKEN: ${{ secrets.YOUR_CHECKOUT_TOKEN }}
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > Only _renovate.json5_ configuration files in the root of the repository are supported.
 
-> [!NOTE]  
+> [!NOTE]
 > The workflow overrides the `schedule` and `prHourlyLimit` options coming from the `renovate.json5` configuration file, instead of relying on the schedule of the workflow itself.
 
 If Renovate is not doing what you expect it to do, you can increase the log level to `debug`, and see in the workflow output what happens:
