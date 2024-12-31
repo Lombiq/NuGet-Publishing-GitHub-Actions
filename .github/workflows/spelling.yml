@@ -22,7 +22,7 @@ on:
       CHECKOUT_TOKEN:
         required: false
         description: >
-          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated 
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
           submodules are used.
 
     # When updating defaults here also update them in the `spelling` action.

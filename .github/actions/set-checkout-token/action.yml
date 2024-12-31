@@ -11,7 +11,7 @@ inputs:
     required: false
     default: ${{ github.token }}
     description: >
-      The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated 
+      The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
       submodules are used.
 
 runs:
