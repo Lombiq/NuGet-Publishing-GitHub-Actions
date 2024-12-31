@@ -34,4 +34,4 @@ runs:
         RENOVATE_FORCE: '{''schedule'':null,''prHourlyLimit'':0}'
         RENOVATE_DRY_RUN: ${{ steps.set-dry-run.outputs.dry-run }}
       with:
-        token: ${{ secrets.CHECKOUT_TOKEN }}
+        token: ${{ env.CHECKOUT_TOKEN }}
