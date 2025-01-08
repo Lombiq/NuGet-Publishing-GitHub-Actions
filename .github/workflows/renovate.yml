@@ -37,3 +37,4 @@ jobs:
           CHECKOUT_TOKEN: ${{ secrets.CHECKOUT_TOKEN }}
         with:
           log-level: ${{ inputs.log-level }}
+          additional-reviewers: ${{ inputs.additional-reviewers }}
