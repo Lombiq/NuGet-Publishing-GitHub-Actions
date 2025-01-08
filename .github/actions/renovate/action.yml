@@ -25,9 +25,17 @@ runs:
       if: ${{ inputs.reviewers != '' }}
       shell: pwsh
       run: |
-          $array = @('${{ inputs.reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() }) | ConvertTo-Json -Compress
-          Set-GitHubOutput 'array' $array
-          Write-Output "reviewers: $array"
+        if (${{ inputs.reviewers }} -contains ',')
+        {
+            $array = '${{ inputs.reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() } | ConvertTo-Json -Compress
+        }
+        else
+        {
+            $array = '[${{ inputs.reviewers }}]''
+        }
+
+        Set-GitHubOutput 'array' $array
+        Write-Output "reviewers: $array"
 
     - name: Run Renovate
       uses: renovatebot/github-action@2be773c4be8361d8182cc1b750e75bbc75af71b0 # v41.0.7
