@@ -25,7 +25,7 @@ runs:
       if: ${{ inputs.reviewers != '' }}
       shell: pwsh
       run: |
-        if ('${{ inputs.reviewers }}'' -contains ',')
+        if ('${{ inputs.reviewers }}' -contains ',')
         {
             $array = '${{ inputs.reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() } | ConvertTo-Json -Compress
         }
