@@ -25,7 +25,7 @@ runs:
       if: ${{ inputs.reviewers != '' }}
       shell: pwsh
       run: |
-          $array = '${{ inputs.reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() } | ConvertTo-Json -Compress
+          $array = @('${{ inputs.reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() }) | ConvertTo-Json -Compress
           Set-GitHubOutput 'array' $array
           Write-Output "reviewers: $array"
 
