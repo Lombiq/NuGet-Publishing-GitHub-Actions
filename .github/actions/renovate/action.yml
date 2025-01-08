@@ -31,7 +31,7 @@ runs:
         }
         else
         {
-            $array = '["${{ inputs.reviewers }}""]'
+            $array = '["${{ inputs.reviewers }}"]'
         }
 
         Set-GitHubOutput 'array' $array
