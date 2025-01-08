@@ -28,6 +28,7 @@ runs:
         {
             $array = '${{ inputs.additional-reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() } | ConvertTo-Json -Compress
             Set-GitHubOutput 'array' $array
+            Write-Output "Additional reviewers: $array"
         }
 
     - name: Run Renovate
