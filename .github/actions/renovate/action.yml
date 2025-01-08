@@ -8,9 +8,9 @@ inputs:
     type: string
     default: info
     description: The log level for Renovate (e.g., debug, info, warn, error).
-  additional-reviewers:
+  reviewers:
     type: string
-    description: A comma-separated list of GitHub usernames to add as reviewers for Renovate PRs.
+    description: A comma-separated list of GitHub usernames to set as reviewers for Renovate PRs.
 
 runs:
   using: composite
@@ -20,15 +20,15 @@ runs:
       run: |
         (Resolve-Path '${{ github.action_path }}/../../../Scripts').Path >> $Env:GITHUB_PATH
 
-    - name: Prepare Additional Reviewers
-      id: additional-reviewers
+    - name: Prepare Reviewers
+      id: reviewers
       shell: pwsh
       run: |
-        if (-not [string]::IsNullOrEmpty('${{ inputs.additional-reviewers }}'))
+        if (-not [string]::IsNullOrEmpty('${{ inputs.reviewers }}'))
         {
-            $array = '${{ inputs.additional-reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() } | ConvertTo-Json -Compress
+            $array = '${{ inputs.reviewers }}' -split ',' | ForEach-Object { $PSItem.Trim() } | ConvertTo-Json -Compress
             Set-GitHubOutput 'array' $array
-            Write-Output "Additional reviewers: $array"
+            Write-Output "reviewers: $array"
         }
 
     - name: Run Renovate
@@ -36,7 +36,7 @@ runs:
       env:
         RENOVATE_REPOSITORIES: ${{ github.repository }}
         LOG_LEVEL: ${{ inputs.log-level }}
-        RENOVATE_ADDITIONAL_REVIEWERS: ${{ steps.additional-reviewers.outputs.array }}
+        RENOVATE_REVIEWERS: ${{ steps.reviewers.outputs.array }}
         # Do the dependency updates when the workflow runs, not when the Renovate config tells it.
         RENOVATE_FORCE: '{''schedule'':null,''prHourlyLimit'':0}'
       with:

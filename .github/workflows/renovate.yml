@@ -18,9 +18,9 @@ on:
         type: string
         default: info
         description: The log level for Renovate (e.g., debug, info, warn, error).
-      additional-reviewers:
+      reviewers:
         type: string
-        description: A comma-separated list of GitHub usernames to add as reviewers for Renovate PRs.
+        description: A comma-separated list of GitHub usernames to set as reviewers for Renovate PRs.
 
 jobs:
   renovate:
@@ -37,4 +37,4 @@ jobs:
           CHECKOUT_TOKEN: ${{ secrets.CHECKOUT_TOKEN }}
         with:
           log-level: ${{ inputs.log-level }}
-          additional-reviewers: ${{ inputs.additional-reviewers }}
+          reviewers: ${{ inputs.reviewers }}

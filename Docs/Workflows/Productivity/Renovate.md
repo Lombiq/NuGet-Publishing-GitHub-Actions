@@ -45,3 +45,10 @@ If Renovate is not doing what you expect it to do, you can increase the log leve
     with:
       log-level: debug
 ```
+
+You can also specify reviewers that will be added to the PRs created by Renovate (if any other automation adds reviewers by default, these will be added to them):
+
+```yaml
+    with:
+      additional-reviewers: GitHubUserName1, GitHubUserName2
+```
