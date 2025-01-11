@@ -10,10 +10,6 @@ on:
           submodules are used. The token should be set up to also enable Renovate to work, see:
           https://github.com/renovatebot/github-action?tab=readme-ov-file#token.
     inputs:
-      machine-type:
-        type: string
-        default: ubuntu-24.04
-        description: The name of the type of machine to run the workflow under.
       log-level:
         type: string
         default: info
@@ -24,7 +20,7 @@ on:
 
 jobs:
   renovate:
-    runs-on: ${{ inputs.machine-type }}
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-combined
