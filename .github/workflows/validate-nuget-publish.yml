@@ -6,8 +6,8 @@ on:
       CHECKOUT_TOKEN:
         required: false
         description: >
-          The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules
-          are used.
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+          submodules are used.
       ENVIRONMENT_VARIABLES_JSON:
         required: false
         description: >
@@ -55,7 +55,7 @@ on:
 jobs:
   validate-nuget-publish:
     name: Validate NuGet Publish
-    uses: Lombiq/GitHub-Actions/.github/workflows/publish-nuget.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/publish-nuget.yml@issue/OSOE-815-combined
     with:
       cancel-workflow-on-failure: ${{ inputs.cancel-workflow-on-failure }}
       verbosity: ${{ inputs.verbosity }}

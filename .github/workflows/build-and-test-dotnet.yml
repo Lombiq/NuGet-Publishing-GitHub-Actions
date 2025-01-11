@@ -6,8 +6,8 @@ on:
       CHECKOUT_TOKEN:
         required: false
         description: >
-          The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules
-          are used.
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+          submodules are used.
       ENVIRONMENT_VARIABLES_JSON:
         required: false
         description: >
@@ -224,7 +224,7 @@ jobs:
       # This has to be the first step so it can collect data about the whole workflow run.
       - name: Collect Workflow Telemetry
         if: inputs.collect-workflow-telemetry == 'true'
-        uses: Lombiq/GitHub-Actions/.github/actions/workflow-telemetry@dev
+        uses: Lombiq/GitHub-Actions/.github/actions/workflow-telemetry@issue/OSOE-815-combined
         with:
           github_token: ${{ secrets.CHECKOUT_TOKEN }}
 
@@ -234,7 +234,7 @@ jobs:
           ENVIRONMENT_VARIABLES_JSON: ${{ secrets.ENVIRONMENT_VARIABLES_JSON }}
 
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-combined
         with:
           repository: ${{ inputs.repository }}
           ref: ${{ inputs.repository-ref }}

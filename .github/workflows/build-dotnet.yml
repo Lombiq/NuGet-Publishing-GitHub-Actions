@@ -7,8 +7,8 @@ on:
       CHECKOUT_TOKEN:
         required: false
         description: >
-          The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules
-          are used.
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+          submodules are used.
 
     inputs:
       cancel-workflow-on-failure:
@@ -88,7 +88,7 @@ jobs:
           Write-Output '::warning::This workflow is deprecated. Use build-and-test-dotnet instead, that can also execute tests.'
 
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-combined
         with:
           token: ${{ secrets.CHECKOUT_TOKEN }}
 
