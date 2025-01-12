@@ -18,6 +18,7 @@ runs:
         # https://github.com/codespell-project/codespell?tab=readme-ov-file#requirements.
         python-version: 3.13.1
 
+    # Intentional misspelling: lateset.
     - name: Install Dependencies
       shell: pwsh
       run: pip install --requirement ${{ github.action_path }}/requirements.txt
