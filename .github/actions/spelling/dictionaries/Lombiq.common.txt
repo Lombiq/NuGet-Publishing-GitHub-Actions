@@ -20,7 +20,9 @@ certs
 Cloudflare
 cloudsmith
 cmdlets
+CMO
 cms
+codespell
 Concat
 Configurator
 contentfiles
