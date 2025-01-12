@@ -1,7 +1,5 @@
 # Create Jira issues for community activities
 
-Intentional misspelling: lateset.
-
 Creates Jira issues for community activities happening on GitHub, like issues, discussions, and pull requests being opened. Pull requests are only taken into account if they're not already related to a Jira issue (by starting their title with a Jira issue key).
 
 ## Prerequisites
