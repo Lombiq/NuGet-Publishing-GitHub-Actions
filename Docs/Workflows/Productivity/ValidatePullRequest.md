@@ -17,8 +17,7 @@ on:
 jobs:
   validate-pull-request:
     name: Validate Pull Request
-    uses: Lombiq/GitHub-Actions/.github/workflows/validate-pull-request.yml@issue/OSOE-962
-
+    uses: Lombiq/GitHub-Actions/.github/workflows/validate-pull-request.yml@dev
 ```
 
 If you get "Error: GraphqlError: Resource not accessible by integration" errors then also add the following permissions just below `uses`:<!--#spell-check-ignore-line-->

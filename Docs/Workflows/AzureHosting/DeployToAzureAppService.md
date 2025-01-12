@@ -15,8 +15,7 @@ permissions:
 jobs:
   deploy-to-azure-app-service:
     name: Deploy to Azure App Service
-    uses: Lombiq/GitHub-Actions/.github/workflows/deploy-to-azure-app-service.yml@issue/OSOE-962
-
+    uses: Lombiq/GitHub-Actions/.github/workflows/deploy-to-azure-app-service.yml@dev
     with:
       timeout-minutes: 60
       app-name: AppName

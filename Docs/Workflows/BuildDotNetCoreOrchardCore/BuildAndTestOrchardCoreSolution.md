@@ -17,8 +17,7 @@ on:
 jobs:
   build-and-test:
     name: Build and Test
-    uses: Lombiq/GitHub-Actions/.github/workflows/build-and-test-orchard-core.yml@issue/OSOE-962
-
+    uses: Lombiq/GitHub-Actions/.github/workflows/build-and-test-orchard-core.yml@dev
     with:
       timeout-minutes: 60
 ```
