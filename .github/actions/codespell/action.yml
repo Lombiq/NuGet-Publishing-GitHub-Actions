@@ -2,8 +2,6 @@ name: Codespell
 description: >
   Runs spell-checking with Codespell. Intentionally not documented in Actions.md since it's only meant for internal use.
 
-inputs:
-
 runs:
   using: composite
   steps:
