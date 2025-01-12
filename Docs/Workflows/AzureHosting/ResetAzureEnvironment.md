@@ -11,7 +11,8 @@ on:
 jobs:
   reset-azure-environment:
     name: Reset Azure Environment
-    uses: Lombiq/GitHub-Actions/.github/workflows/reset-azure-environment.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/reset-azure-environment.yml@issue/OSOE-962
+
     with:
       timeout-minutes: 60
       app-name: AppName

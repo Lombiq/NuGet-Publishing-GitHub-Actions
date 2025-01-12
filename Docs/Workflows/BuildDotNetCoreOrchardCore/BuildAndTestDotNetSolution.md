@@ -15,7 +15,8 @@ on:
 jobs:
   build-and-test:
     name: Build and Test
-    uses: Lombiq/GitHub-Actions/.github/workflows/build-and-test-dotnet.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/build-and-test-dotnet.yml@issue/OSOE-962
+
     with:
       machine-types: '["ubuntu-24.04", "windows-2022"]'
       timeout-minutes: 10
