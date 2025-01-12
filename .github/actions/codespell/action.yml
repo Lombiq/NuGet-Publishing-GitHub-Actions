@@ -34,6 +34,7 @@ runs:
         }
 
         Copy-Item setupCfgPath $Env:GITHUB_WORKSPACE
+        
         Merge-ConfigurationValues
 
     - name: Run codespell
