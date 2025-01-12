@@ -33,7 +33,7 @@ runs:
             exit 1
         }
 
-        Copy-Item setupCfgPath Join-Path "$Env:GITHUB_WORKSPACE"
+        Copy-Item setupCfgPath $Env:GITHUB_WORKSPACE
         Merge-ConfigurationValues
 
     - name: Run codespell
