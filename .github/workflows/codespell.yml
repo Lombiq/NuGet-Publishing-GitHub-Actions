@@ -11,6 +11,7 @@ on:
 
 jobs:
   codespell:
+    name: Codespell
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -18,5 +19,5 @@ jobs:
         with:
           token: ${{ secrets.CHECKOUT_TOKEN }}
 
-      - name: Run Codespell
+      - name: Run codespell
         uses: Lombiq/GitHub-Actions/.github/actions/codespell@issue/OSOE-960
