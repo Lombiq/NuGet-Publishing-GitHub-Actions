@@ -25,16 +25,17 @@ runs:
     - name: Merge Configuration Values
       shell: pwsh
       run: |
-        $setupCfgPath = Join-Path '${{ github.action_path }}' 'setup.cfg'
+        cd $Env:GITHUB_WORKSPACE
 
-        if (Test-Path $setupCfgPath)
+        if (Test-Path 'setup.cfg')
         {
-            Write-Error "There's a file under the path ""$setupCfgPath"" already. The repository may only have a .codespellrc file."
+            Write-Error "There's a ""setup.cfg"" in the root of the repository already. It may only have a .codespellrc file."
             exit 1
         }
 
+        $setupCfgPath = Join-Path '${{ github.action_path }}' 'setup.cfg'
+
         Copy-Item setupCfgPath $Env:GITHUB_WORKSPACE
-        cd $Env:GITHUB_WORKSPACE
         Merge-ConfigurationValues
 
     - name: Run codespell
