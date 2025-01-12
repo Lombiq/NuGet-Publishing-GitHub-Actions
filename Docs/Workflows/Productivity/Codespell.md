@@ -31,7 +31,7 @@ For complete configuration of codespell, you can override the default configurat
 Useful configuration options to override:
 
 - `ignore-words-list`: These words will be considered correct spelling. E.g.: `ignore-words-list = MySpecialWord, MyOtherSpecialWord`.
-- `ignore-regex`: Words or phrases matching this regex will be ignored. E.g.: `ignore-regex = (<thead|<\/thead>)`.
+- `ignore-regex`: Words or phrases matching this regex will be ignored. E.g.: `ignore-regex = (<thead|<\/thead>)`.<!-- codespell:ignore thead -->
 - `skip`: Files matching these paths or glob expressions will be skipped. E.g.: `skip = *.txt, */IgnoredPathSegment/*, ./src/Ignored/Folder/*, IgnoredFile.md`.
 
 <!-- textlint-disable doubled-spaces -->
