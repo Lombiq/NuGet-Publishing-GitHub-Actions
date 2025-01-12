@@ -10,7 +10,7 @@ on:
           submodules are used.
 
 jobs:
-  renovate:
+  codespell:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -20,4 +20,3 @@ jobs:
 
       - name: Run Codespell
         uses: Lombiq/GitHub-Actions/.github/actions/codespell@issue/OSOE-960
-
