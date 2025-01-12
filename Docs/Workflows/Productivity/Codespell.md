@@ -3,7 +3,18 @@
 Checks spelling by running [codespell](https://github.com/codespell-project/codespell). Unlike spell-checkers that use dictionaries to look for correct spelling, codespell rather looks for common misspellings. This reduces false positives by a lot, while still providing a good enough guard against spelling mistakes.
 
 ```yaml
+name: Codespell
 
+on:
+  pull_request:
+    push:
+      branches:
+        - dev
+
+jobs:
+  codespell:
+    name: Codespell
+    uses: Lombiq/GitHub-Actions/.github/workflows/codespell.yml@dev
 ```
 
 ## Configuring codespell in your project
