@@ -24,6 +24,7 @@ These features are designed to reduce resource usage (like paid GitHub Actions m
 
 ## Productivity
 
+- [Codespell](Workflows/Productivity/Codespell.md)
 - [Create Jira issues for community activities](Workflows/Productivity/CreateJiraIssuesForCommunityActivities.md)
 - [Markdown linting](Workflows/Productivity/MarkdownLinting.md)
 - [Post-pull request checks automation](Workflows/Productivity/PostPullRequestChecksAutomation.md)
