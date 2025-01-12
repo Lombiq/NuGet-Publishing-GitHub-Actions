@@ -19,7 +19,9 @@ jobs:
 
 ## Configuring codespell in your project
 
-You can override the default configuration of this workflow by placing a _.codespellrc_ file in the root of your repository. On how to use this, see the [codespell documentation](https://github.com/codespell-project/codespell?tab=readme-ov-file#using-a-config-file). The default configuration is [here](https://github.com/Lombiq/GitHub-Actions/blob/dev/.github/actions/codespell/setup.cfg).
+One-off false positives can be ignored by adding `codespell:ignore yourword` to the end of the line (or `codespell:ignore` to ignore the whole line).
+
+For complete configuration of codespell, you can override the default configuration of this workflow by placing a _.codespellrc_ file in the root of your repository. On how to use this, see the [codespell documentation](https://github.com/codespell-project/codespell?tab=readme-ov-file#using-a-config-file). The default configuration is [here](https://github.com/Lombiq/GitHub-Actions/blob/dev/.github/actions/codespell/setup.cfg).
 
 <!-- textlint-disable doubled-spaces -->
 > [!WARNING]
