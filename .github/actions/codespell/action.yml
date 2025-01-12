@@ -35,7 +35,7 @@ runs:
 
         $setupCfgPath = Join-Path '${{ github.action_path }}' 'setup.cfg'
 
-        Copy-Item setupCfgPath $Env:GITHUB_WORKSPACE
+        Copy-Item $setupCfgPath $Env:GITHUB_WORKSPACE
         Merge-ConfigurationValues
 
     - name: Run codespell
