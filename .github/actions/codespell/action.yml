@@ -1,0 +1,43 @@
+name: Codespell
+description: >
+  Runs spell-checking with Codespell. Intentionally not documented in Actions.md since it's only meant for internal use.
+
+inputs:
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Scripts
+      shell: pwsh
+      run: |
+        '${{ github.action_path }}' >> $Env:GITHUB_PATH
+        (Resolve-Path '${{ github.action_path }}/../../../Scripts').Path >> $Env:GITHUB_PATH
+
+    - name: Set up Python
+      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      with:
+        # Needs to be what codespell supports, see
+        # https://github.com/codespell-project/codespell?tab=readme-ov-file#requirements.
+        python-version: 3.14
+
+    - name: Install Dependencies
+      shell: pwsh
+      run: pip install --requirement requirements.txt
+
+    - name: Merge Configuration Values
+      shell: pwsh
+      run: |
+        $setupCfgPath = Join-Path '${{ github.action_path }}' 'setup.cfg'
+
+        if (Test-Path $setupCfgPath)
+        {
+            Write-Error "There's a file under the path ""$setupCfgPath"" already. The repository may only have a .codespellrc file."
+            exit 1
+        }
+
+        Copy-Item setupCfgPath Join-Path "$Env:GITHUB_WORKSPACE"
+        Merge-ConfigurationValues
+
+    - name: Run codespell
+      shell: pwsh
+      run: codespell
