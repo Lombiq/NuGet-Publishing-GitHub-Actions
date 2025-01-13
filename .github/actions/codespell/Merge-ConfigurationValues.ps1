@@ -4,13 +4,13 @@ $codespellRcPath = '.codespellrc'
 
 if (-Not (Test-Path $setupCfgPath))
 {
-    Write-Error 'The setup.cfg file was not found in the current directory.'
+    Write-Error "The $setupCfgPath file was not found in the current directory."
     exit 1
 }
 
 if (-Not (Test-Path $codespellRcPath))
 {
-    Write-Output 'A .codespellrc file was not found in the current directory. No configuration values will be merged.'
+    Write-Output "A $codespellRcPath file was not found in the current directory. No configuration values will be merged."
     exit
 }
 
@@ -56,4 +56,4 @@ foreach ($concatenatingLineMatch in $concatenatingLineMatches)
 # Save the updated setup.cfg.
 Set-Content $setupCfgPath -Value $setupCfgContent
 
-Write-Output 'The setup.cfg file has been updated successfully.'
+Write-Output "The $setupCfgPath file has been updated successfully."
