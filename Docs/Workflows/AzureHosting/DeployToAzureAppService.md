@@ -8,10 +8,6 @@ name: Deploy to Azure App Service
 on:
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: write
-
 jobs:
   deploy-to-azure-app-service:
     name: Deploy to Azure App Service
@@ -34,6 +30,9 @@ jobs:
       AZURE_APP_SERVICE_DEPLOYMENT_AZURE_TENANT_ID: ${{ secrets.AZURE_APP_SERVICE_DEPLOYMENT_AZURE_TENANT_ID }}
       AZURE_APP_SERVICE_DEPLOYMENT_AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_APP_SERVICE_DEPLOYMENT_AZURE_SUBSCRIPTION_ID }}
       AZURE_APP_SERVICE_PUBLISH_PROFILE: ${{ secrets.AZURE_APP_SERVICE_PUBLISH_PROFILE }}
+    permissions:
+      id-token: write
+      contents: write
 ```
 
 Note that to be able to download the publish profile, and for the workflow to work, you'll need [SCM Basic Auth Publishing Credentials](https://learn.microsoft.com/en-us/azure/app-service/configure-basic-auth-disable?tabs=portal) to be turned **on** for the App Service.
