@@ -20,4 +20,4 @@ jobs:
           token: ${{ secrets.CHECKOUT_TOKEN }}
 
       - name: Run codespell
-        uses: Lombiq/GitHub-Actions/.github/actions/codespell@issue/OSOE-960
+        uses: Lombiq/GitHub-Actions/.github/actions/codespell@dev
