@@ -1,0 +1,23 @@
+name: Codespell
+
+on:
+  workflow_call:
+    secrets:
+      CHECKOUT_TOKEN:
+        required: false
+        description: >
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+          submodules are used.
+
+jobs:
+  codespell:
+    name: Codespell
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
+        with:
+          token: ${{ secrets.CHECKOUT_TOKEN }}
+
+      - name: Run codespell
+        uses: Lombiq/GitHub-Actions/.github/actions/codespell@dev
