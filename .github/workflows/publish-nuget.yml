@@ -6,8 +6,8 @@ on:
       CHECKOUT_TOKEN:
         required: false
         description: >
-          The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules
-          are used.
+          The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+          submodules are used.
       API_KEY:
         required: true
         description: >
@@ -90,7 +90,7 @@ jobs:
           ENVIRONMENT_VARIABLES_JSON: ${{ secrets.ENVIRONMENT_VARIABLES_JSON }}
 
       - name: Checkout
-        uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
+        uses: Lombiq/GitHub-Actions/.github/actions/checkout@issue/OSOE-815-combined
         with:
           token: ${{ secrets.CHECKOUT_TOKEN }}
 
