@@ -1,0 +1,52 @@
+name: Codespell
+description: >
+  Runs spell-checking with Codespell. Intentionally not documented in Actions.md since it's only meant for internal use.
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Scripts
+      shell: pwsh
+      run: |
+        '${{ github.action_path }}' >> $Env:GITHUB_PATH
+        (Resolve-Path '${{ github.action_path }}/../../../Scripts').Path >> $Env:GITHUB_PATH
+
+    - name: Set up Python
+      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      with:
+        # Needs to be what codespell supports, see
+        # https://github.com/codespell-project/codespell?tab=readme-ov-file#requirements.
+        python-version: 3.13.1
+
+    - name: Install Dependencies
+      shell: pwsh
+      run: pip install --requirement ${{ github.action_path }}/requirements.txt
+
+    - name: Merge Configuration Values
+      shell: pwsh
+      run: |
+        cd $Env:GITHUB_WORKSPACE
+
+        if (Test-Path 'setup.cfg')
+        {
+            Write-Error "There's a ""setup.cfg"" in the root of the repository already. It may only have a .codespellrc file."
+            exit 1
+        }
+
+        Copy-Item (Join-Path '${{ github.action_path }}' 'setup.cfg') $Env:GITHUB_WORKSPACE
+        Merge-ConfigurationValues
+
+    - name: Run codespell
+      shell: pwsh
+      run: codespell
+
+    - name: Display Hint
+      if: failure()
+      shell: pwsh
+      run: |
+        $hint = '**Codespell false positives?** If it''s a rare occasion, then make codespell ignore it inline with ' +
+            'a `codespell:ignore yourword` comment at the end of the line (see ' +
+            '[the docs](https://github.com/codespell-project/codespell?tab=readme-ov-file#inline-ignore)). If it''s ' +
+            'frequent, or whole files/folders, see [the docs]' +
+            '(https://github.com/Lombiq/GitHub-Actions/blob/dev/Docs/Workflows/Productivity/Codespell.md#configuring-codespell-in-your-project).'
+        $hint >> $Env:GITHUB_STEP_SUMMARY

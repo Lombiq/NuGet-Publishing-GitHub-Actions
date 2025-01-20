@@ -3,9 +3,6 @@ name: Deploy to Azure App Service
 concurrency:
   group: ${{ inputs.app-name }}AzureWorkflow
 
-permissions:
-  id-token: write
-
 on:
   workflow_call:
     secrets:
