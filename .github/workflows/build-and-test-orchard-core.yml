@@ -318,6 +318,8 @@ jobs:
           xunit-max-parallel-threads: ${{ inputs.xunit-max-parallel-threads }}
           enable-diagnostic-mode: ${{ inputs.enable-test-diagnostic-mode }}
 
+      - uses: Warpbuilds/action-debugger@v1.3
+      
       - name: Cancel Workflow on Failure
         if: failure() && inputs.cancel-workflow-on-failure == 'true'
         uses: Lombiq/GitHub-Actions/.github/actions/cancel-workflow@dev
