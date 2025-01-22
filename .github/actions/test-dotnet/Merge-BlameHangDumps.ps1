@@ -28,7 +28,7 @@ function ItemFilter($Item, $TestConfiguration)
     }
 
     $allow = (($Item.Name -like 'Sequence_*.xml') -or ($Item.Name -like '*_hangdump.dmp'))
-    if (-not ($allow -and $TestConfiguration))
+    if (-not $allow -and $TestConfiguration)
     {
         $allow = ($Item.FullName -like "*$(Join-Path 'bin' $TestConfiguration)*" )
     }
