@@ -1,0 +1,27 @@
+name: Renovate
+description: >
+  Runs the Renovate GitHub Action to update dependencies in the repository. Intentionally not documented in Actions.md
+  since it's only meant for internal use.
+
+inputs:
+  log-level:
+    type: string
+    default: info
+    description: The log level for Renovate (e.g., debug, info, warn, error).
+  additional-reviewers:
+    type: string
+    description: A comma-separated list of GitHub usernames to add as reviewers for Renovate PRs.
+
+runs:
+  using: composite
+  steps:
+    - name: Run Renovate
+      uses: renovatebot/github-action@2be773c4be8361d8182cc1b750e75bbc75af71b0 # v41.0.7
+      env:
+        RENOVATE_REPOSITORIES: ${{ github.repository }}
+        LOG_LEVEL: ${{ inputs.log-level }}
+        RENOVATE_ADDITIONAL_REVIEWERS: ${{ inputs.additional-reviewers }}
+        # Do the dependency updates when the workflow runs, not when the Renovate config tells it.
+        RENOVATE_FORCE: '{''schedule'':null,''prHourlyLimit'':0}'
+      with:
+        token: ${{ env.CHECKOUT_TOKEN }}
