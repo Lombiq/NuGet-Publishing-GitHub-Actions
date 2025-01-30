@@ -12,8 +12,8 @@ inputs:
     required: false
     default: ${{ github.token }}
     description: >
-      The GitHub token to authenticate checkout. Pass in a GitHub personal access token if authenticated submodules are
-      used.
+      The GitHub token to authenticate checkout with. Pass in a GitHub personal access token if authenticated
+      submodules are used.
   checkout-path:
     required: false
     default: .
@@ -51,10 +51,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Clone repository
+    - name: Checkout
       if: inputs.repository != ''
-      # Using the official checkout action directly, because our wrapper action doesn't have most of the parameters we
-      # need here. We only need those parameters for this action though.
       uses: Lombiq/GitHub-Actions/.github/actions/checkout@dev
       with:
         repository: ${{ inputs.repository }}
