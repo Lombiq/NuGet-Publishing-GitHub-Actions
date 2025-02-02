@@ -10,6 +10,12 @@ inputs:
     required: false
     default: minimal
     description: The logging verbosity type used by the `dotnet` command.
+  # This is really only necessary to work around the https://github.com/nodejs/corepack/issues/612 corepack issue.
+  # Also see https://github.com/Lombiq/NodeJs-Extensions/issues/120.
+  enable-corepack:
+    type: string
+    default: 'false'
+    description: Indicates whether to enable Node.js corepack before the build.
   dotnet-pack-ignore-warning:
     required: false
     default: ''
@@ -142,6 +148,7 @@ runs:
       run: Update-ManifestVersion './' '${{ steps.setup.outputs.publish-version }}'
 
     - name: Enable Node corepack
+      if: inputs.enable-corepack == 'true'
       uses: Lombiq/GitHub-Actions/.github/actions/enable-corepack@dev
 
     - name: Generate nuspec file if needed
