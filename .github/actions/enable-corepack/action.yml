@@ -1,8 +1,8 @@
 name: Enable corepack
 description: >
-  Enables Node corepack (https://nodejs.org/docs/latest-v16.x/api/corepack.html) so any package manager can be used
-  seamlessly. This is instead of a direct PNPM install. This step won't be necessary once corepack is out of the
-  experimental state and be enabled by default.
+  Enables Node corepack so any package manager can be used seamlessly. This is instead of a direct PNPM install. This
+  step won't be necessary once corepack is out of the experimental state and be enabled by default, see 
+  https://github.com/nodejs/node/issues/50963.
 
 runs:
   using: composite
