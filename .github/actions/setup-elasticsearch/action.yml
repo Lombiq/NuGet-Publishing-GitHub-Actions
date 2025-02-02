@@ -14,6 +14,6 @@ runs:
 
     - name: Runs Elasticsearch
       # There are no versions and releases for this action yet, hence only using the commit hash.
-      uses: elastic/elastic-github-actions/elasticsearch@00184ce549534758d5b070a540023d1470d58f64
+      uses: elastic/elastic-github-actions/elasticsearch@dc110609b1cb3024477ead739ca23ab547b8b9ff
       with:
         stack-version: 7.6.0
