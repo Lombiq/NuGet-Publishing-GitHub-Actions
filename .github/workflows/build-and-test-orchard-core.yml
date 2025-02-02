@@ -57,6 +57,12 @@ on:
         type: string
         default: 8.0.301
         description: Version of the .NET SDK to set up.
+      # This is really only necessary to work around the https://github.com/nodejs/corepack/issues/612 corepack issue.
+      # Also see https://github.com/Lombiq/NodeJs-Extensions/issues/120.
+      enable-corepack:
+        type: string
+        default: 'true'
+        description: Indicates whether to enable Node.js corepack before the build.
       blame-hang-timeout:
         type: string
         default: ''
@@ -287,6 +293,7 @@ jobs:
           exclude-project-path: ${{ inputs.dotnet-consolidation-exclude-project-path }}
 
       - name: Enable Node.js corepack
+        if: inputs.enable-corepack == 'true'
         uses: Lombiq/GitHub-Actions/.github/actions/enable-corepack@dev
 
       - name: Build and Static Code Analysis
