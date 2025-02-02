@@ -39,6 +39,12 @@ on:
         type: number
         default: 15
         description: Configuration for the timeout-minutes parameter of the workflow. 360 is GitHub's default.
+      # This is really only necessary to work around the https://github.com/nodejs/corepack/issues/612 corepack issue.
+      # Also see https://github.com/Lombiq/NodeJs-Extensions/issues/120.
+      enable-corepack:
+        type: string
+        default: 'false'
+        description: Indicates whether to enable Node.js corepack before the build.
       dotnet-pack-ignore-warning:
         type: string
         default: ''
@@ -104,6 +110,7 @@ jobs:
         with:
           source: ${{ inputs.source }}
           verbosity: ${{ inputs.verbosity }}
+          enable-corepack: ${{ inputs.enable-corepack }}
           dotnet-pack-ignore-warning: ${{ inputs.dotnet-pack-ignore-warning }}
           dotnet-pack-include-symbols: ${{ inputs.dotnet-pack-include-symbols }}
           publish-version: ${{ inputs.publish-version }}
