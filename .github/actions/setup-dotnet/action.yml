@@ -46,7 +46,7 @@ runs:
     # released .NET version for wildcard versions. So, e.g. with 6.0.x specified it'll still install 6.0.402 if the VM
     # only has 6.0.401. See: https://github.com/actions/setup-dotnet/issues/356 about making this better.
     - name: Set up .NET SDK
-      uses: actions/setup-dotnet@87b7050bc53ea08284295505d98d2aa94301e852 # v4.2.0
+      uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005cbab # v4.3.0
       id: setup-dotnet
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
