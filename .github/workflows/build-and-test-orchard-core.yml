@@ -286,6 +286,9 @@ jobs:
           exclude-version-regex: ${{ inputs.dotnet-consolidation-exclude-version-regex }}
           exclude-project-path: ${{ inputs.dotnet-consolidation-exclude-project-path }}
 
+      - name: Enable Node.js corepack
+        uses: Lombiq/GitHub-Actions/.github/actions/enable-corepack@dev
+
       - name: Build and Static Code Analysis
         uses: Lombiq/GitHub-Actions/.github/actions/build-dotnet@dev
         with:
