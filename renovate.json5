@@ -6,6 +6,11 @@
             matchPackageNames: ['azure/webapps-deploy'], // #spell-check-ignore-line
             matchFileNames: ['.github/workflows/deploy-orchard1-to-azure-app-service.yml'], 
             enabled: false,
-        }
+        },
+        {
+            // Due to having to update branch references, it's easier to test all dependencies at once.
+            groupName: 'All dependencies',
+            matchUpdateTypes: ['*'],
+        },
     ]
 }
