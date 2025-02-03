@@ -61,7 +61,7 @@ on:
       # Also see https://github.com/Lombiq/NodeJs-Extensions/issues/120.
       enable-corepack:
         type: string
-        default: 'true'
+        default: 'false'
         description: Indicates whether to enable Node.js corepack before the build.
       blame-hang-timeout:
         type: string
